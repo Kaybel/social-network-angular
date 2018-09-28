@@ -43,7 +43,15 @@ export class DiarieComponent implements OnInit {
     this.dataservice.getPostsCollection().ref.doc(item.id).update(item);
   }
 
-  remove(item){
-    this.dataservice.getPostsCollection().ref.doc(item.id).delete();
-  }
+  promp (prompt) {
+    prompt({
+      title: 'Deseas eliminar este post?',
+      message: 'Estas seguro que deseas eliminarlo?'
+    }).then(function(){
+      this.remove()
+    });
+    }
+    remove(item){
+      this.dataservice.getPostsCollection().ref.doc(item.id).delete();
+    }
 }
