@@ -1,11 +1,11 @@
 mat-card{
   background-color: white;
-  width: 55%;
-  height: 10vh;
+  width: 70%;
+  height: 30vh;
   display: block;
-  margin-left: 32%;
-  padding-top: 5%;
-  margin-top: 9%;
+  margin-left: 25%;
+  padding-top: 2%;
+  margin-top: 2%;
 }
 
 button{
@@ -19,22 +19,39 @@ button{
   background-color: #27a9e1ad;
 }
 
-div {
-  display: inline;
-}
-
 i {
   color: #82ccd5;
   font-size: 18px;
-  justify-content: space-between;
   margin-right: 2%;
+}
+
+textarea{
+  background-color: #82ccd5;
+  resize: none;
+  width: 100%;
+  height: 50%;
+}
+
+img{
+  height: 8vh;
+  width: auto;
+}
+
+.message {
+  overflow: auto;
+  border: 1px solid #82ccd5;
+  width: 100%;
+}
+
+.message p{
+  display: inline;
 }
 
 @media(max-width: 750px){
   mat-card{
-    width: 70%;
+    width: 80%;
     display: block;
     margin: 10%;
-    padding-top: 5%;
+    padding-top: 2%;
   }
-}
+} 

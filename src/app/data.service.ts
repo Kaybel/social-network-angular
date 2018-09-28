@@ -12,11 +12,12 @@ export interface Post {
   username: string;
   id: any;
   date: string;
+  photo: any;
 }
 
 export interface Chat {
-  msm: string;
-  users: string;
+  msn: string;
+  username: string;
   date: string;
 }
 
@@ -34,7 +35,7 @@ export class DataService {
   private chatDoc: AngularFirestoreDocument<Chat>;
 
   constructor(private afs: AngularFirestore, public afAuth: AngularFireAuth, private database: AngularFireDatabase) {
-    this.postCollection = afs.collection<Post>('posts');
+    this.postCollection = afs.collection<Post>('post', ref => ref.orderBy('date', 'desc'));
     this.posts$ = this.postCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Post;
@@ -43,7 +44,7 @@ export class DataService {
       }))
     );
 
-    this.chatCollection = afs.collection<Chat>('chat');
+    this.chatCollection = afs.collection<Chat>('chat', ref => ref.orderBy('date'));
     this.chat$ = this.chatCollection.snapshotChanges().pipe(
       map(index => index.map(i => {
         const dataChat = i.payload.doc.data() as Chat;
@@ -51,13 +52,6 @@ export class DataService {
         return {id, ...dataChat};
       }))
     );
-
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-      console.log(user.displayName);
-      }
-
-    });
   }
 
   getPosts() {

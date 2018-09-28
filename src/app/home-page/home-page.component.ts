@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Subscription } from 'rxjs';
 
 
@@ -22,8 +23,12 @@ export class HomePageComponent implements OnInit {
   displayMode = 'flat';
   watcher: Subscription;
 
+  userName: any;
+  photo: any;
+  email: any;
+
   // tslint:disable-next-line:max-line-length
-  constructor(private authService: AuthService, private snackBar: MatSnackBar, private router: Router, private fb: FormBuilder, private media: ObservableMedia) {
+  constructor(private authService: AuthService, private snackBar: MatSnackBar, private router: Router, private fb: FormBuilder, private media: ObservableMedia, public afAuth: AngularFireAuth ) {
     this.options = fb.group({
       bottom: 0,
       fixed: true,
@@ -36,6 +41,14 @@ export class HomePageComponent implements OnInit {
       } else {
         this.opened = true;
         this.over = 'side';
+      }
+    });
+
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userName = user.displayName;
+        this.photo = user.photoURL;
+        this.email = user.email;
       }
     });
   }

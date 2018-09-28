@@ -3,32 +3,24 @@ i{
   background-color: inherit;
   color: gray;
 }
-i:hover{
+i:hover,
+button:hover {
   border: inherit;
   background-color: inherit;
-  color: rgb(80, 79, 79);
+  color: rgb(44, 44, 44);
 }
 button{
   border: inherit;
   background-color: inherit;
   color: gray;
 }
-button:hover{
-  border: inherit;
-  background-color: inherit;
-  color: rgb(80, 79, 79);
-}
 
-img{
+.banner{
   height: 17vh;
   text-align: center;
   margin-left: 26%;
   margin-top: 12%;
   opacity: 0.5;
-}
-
-.spacer {
-  flex: 1 1 auto;
 }
 
 mat-sidenav {
@@ -39,10 +31,11 @@ mat-sidenav {
 
 .circle {
   border-radius: 50%;
+  margin: 0%;
+  width: 12vh;
 }
 
 .with-bg {
-
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -70,7 +63,6 @@ mat-sidenav {
 .header-box-shadow img {
   height: 7vh;
   margin: 0% 40%;
-  opacity: none;
 }
 
 .bottom-to-top {
@@ -80,7 +72,15 @@ mat-sidenav {
   border-image:
   linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%
 }
+
 mat-sidenav{
   background-color: white;
 }
+
+p{
+  width: 100%;
+  font-size: 14px;
+  font-weight: 200;
+}
+
 

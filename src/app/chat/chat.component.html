@@ -1,20 +1,22 @@
 <app-home-page></app-home-page>
 <section>
-  <div class="container">  
-    <div class="top_menu">
-        <div class="avatar-pic"></div>
-        <div class="title">Usuario</div>
-    </div>
-    <!-- Contenedor Mensajes -->
-    <div class="messagesContainer">
-        <div class="message-data">Usuario</div>
-        <div class="message" *ngFor="let chat of chat">
-            {{chat.msn}}&nbsp;&nbsp;&nbsp; <i class="fas fa-trash-alt" (click)='remove(chat)'></i>
+    <div class="container">
+        <div class="top_menu">
+            <img src="{{photo}}" alt="">
+            <div class="title">{{userName}}</div>
+        </div>
+        <!-- Contenedor Mensajes -->
+        <div class="messagesContainer" >
+            <div class="message" *ngFor="let chat of chat">
+            <p class="message-data">{{chat.username}}</p>
+            <p>{{chat.msn}}</p>
+            <p>{{chat.date}}</p>
+            <i class="fas fa-trash-alt" (click)='remove(chat)'></i>
+        </div>
+        </div>
+        <!-- Area de envio -->
+        <div class="bottom">
+            <app-imput-chat></app-imput-chat>
         </div>
     </div>
-    <!-- Area de envio -->
-    <div class="bottom">  
-        <app-imput-chat></app-imput-chat>
-    </div>
-  </div>
 </section>

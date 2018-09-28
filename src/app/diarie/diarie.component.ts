@@ -19,22 +19,25 @@ export class DiarieComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private database: AngularFireDatabase, private dataservice: DataService) {
     this.dataservice.getPosts().subscribe(item => {
       this.posts = item;
-      console.log(item);
     });
   }
 
   ngOnInit() {
   }
 
-  // iba a usar la funcion directamente en el data service pero al acceder al this. en el dataservice se perdia el "ref", por lo que no podia llamar al .add o .update o cualquier metodo en la collection asi que se hicieron las funciones del post al component.ts y se llaman de manera directa 
+  // tslint:disable-next-line:max-line-length
+  // iba a usar la funcion directamente en el data service pero al acceder al this. en el dataservice se perdia el "ref", por lo que no podia llamar al .add o .update o cualquier metodo en la collection asi que se hicieron las funciones del post al component.ts y se llaman de manera directa
 
+  // tslint:disable-next-line:max-line-length
   // para usar los objetos en firebase se usa la ref de cada objeto, los collection permiten acceder a cada ref usando el .ref y luego el .doc donde le pasas el id del documento (path), luego de obtener la ruta se puede modificar y se guarda directamente en firebase.
 
+  // tslint:disable-next-line:max-line-length
   // por que no necesitas hacer el ref para agregar items al collection? Pues como bien dice, no se manipula un objeto sino el collection el cual ya tiene el subscribe en el componente asi que luego de actualizar los likes o eliminar el post de la misma
 
   // ref y doc es para cuando manipulamos documentos individuales.
-  
-  count(item){
+
+  count(item) {
+    // tslint:disable-next-line:max-line-length
     if (item.likes) { // todo post inicia con likes undefined/null/0 si entras aqui ya tenias uno por lo que podemos incrementar sin romper el codigo
       item.likes ++;
     } else { // si no tienes nada se asigna el 1
@@ -43,15 +46,11 @@ export class DiarieComponent implements OnInit {
     this.dataservice.getPostsCollection().ref.doc(item.id).update(item);
   }
 
-  promp (prompt) {
-    prompt({
-      title: 'Deseas eliminar este post?',
-      message: 'Estas seguro que deseas eliminarlo?'
-    }).then(function(){
-      this.remove()
-    });
-    }
-    remove(item){
-      this.dataservice.getPostsCollection().ref.doc(item.id).delete();
-    }
+  remove(item) {
+    this.dataservice.getPostsCollection().ref.doc(item.id).delete();
+  }
+
+  edit(item) {
+    this.dataservice.getPostsCollection().ref.doc(item.id).update(item);
+  }
 }

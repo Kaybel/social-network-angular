@@ -15,8 +15,8 @@ export class LoginAuthComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  loginWithGoogle(){
+
+  loginWithGoogle() {
     this.authService.loginGoogle()
     .then(response => {
       this.router.navigate(['/home']);
@@ -24,13 +24,13 @@ export class LoginAuthComponent implements OnInit {
     .catch(() => {
       this.snackBar.open('Error ¡Intentemoslo otra vez!'
       , null
-      ,{
+      , {
         duration: 4000
       });
-    })
+    });
   }
 
-  loginWithFacebook(){
+  loginWithFacebook() {
    this.authService.loginFacebook()
    .then(response => {
      this.router.navigate(['/home']);
@@ -38,10 +38,10 @@ export class LoginAuthComponent implements OnInit {
    .catch(() => {
     this.snackBar.open('Error ¡Intentemoslo otra vez!'
     , null
-    ,{
+    , {
       duration: 4000
     });
-   })
+   });
  }
 
 }

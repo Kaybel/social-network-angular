@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar, private router: Router) {
-    this.createRegisterForm()
+    this.createRegisterForm();
    }
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     .catch(() => {
       this.snackBar.open('Error en tu Registro, ¡Intentemoslo otra vez!'
       , null
-      ,{
+      , {
         duration: 4000
       });
     });
