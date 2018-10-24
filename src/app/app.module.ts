@@ -38,7 +38,6 @@ import {MatCardModule} from '@angular/material/card';
 import { ImputPostComponent } from './imput-post/imput-post.component';
 import { ImputChatComponent } from './imput-chat/imput-chat.component';
 
-
 const appRoutes: Routes = [
   {
     path: '',

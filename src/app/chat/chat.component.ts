@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject, AngularFireAction, AngularFireList } from '@angular/fire/database';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, Validator } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { DataService } from '../data.service';
+import { DataService, Chat } from '../data.service';
 
 @Component({
   selector: 'app-chat',
@@ -10,6 +10,10 @@ import { DataService } from '../data.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  chatForm: FormGroup;
+  createChatForm() {
+    chat: ['', Validators.required]
+  }
   chat: any;
   userName: any;
   photo: any;

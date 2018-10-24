@@ -69,10 +69,7 @@ export class DataService {
     this.chatCollection.add(item);
   }
 
-  // la propiedad se mantiene privada y la unica manera de acceder a ella es con este metodo
-  // tal cual como se obtiene el chat y el posts
-  // Por que necesito acceder desde fuera a esta collection? pues con este collection voy a usar
-  // las referencias a los documenstos que me permites actualizar y eliminarlos
+  // la propiedad se mantiene privada y la unica manera de acceder a ella es con este metodo tal cual como se obtiene el chat y el posts por que necesito acceder desde fuera a esta collection? pues con este collection voy a usar las referencias a los documentos que me permiten actualizar y eliminarlos
   getPostsCollection() {
     return this.postCollection;
   }

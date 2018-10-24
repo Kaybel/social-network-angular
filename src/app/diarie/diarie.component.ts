@@ -45,7 +45,13 @@ export class DiarieComponent implements OnInit {
     }
     this.dataservice.getPostsCollection().ref.doc(item.id).update(item);
   }
-
+  validateDelete(){
+    if(this.validateDelete){
+      return this.remove(postMessage);
+    } else {
+      console.log('no se elimino el mensaje.');
+    }
+  }
   remove(item) {
     this.dataservice.getPostsCollection().ref.doc(item.id).delete();
   }
